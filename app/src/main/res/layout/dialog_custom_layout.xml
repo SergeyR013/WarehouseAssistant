@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Добавьте элементы интерфейса, необходимые для отображения информации о заказе -->
+
+    <Button
+        android:id="@+id/buttonConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Оформить" />
+
+    <Button
+        android:id="@+id/buttonReject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Отклонить" />
+
+
+</LinearLayout>

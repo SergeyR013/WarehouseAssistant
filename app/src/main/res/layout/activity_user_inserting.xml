@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Activities.userInserting">
+
+    <!-- Шапка -->
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/txt_header"
+        android:textColor="#FFFFFF"
+        android:textSize="38sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="@string/txt_insertUser"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <!-- Лейаут для полей ввода и кнопок -->
+    <RelativeLayout
+        android:id="@+id/login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="70dp"
+        android:gravity="center">
+
+
+        <!-- Поле ввода пароля -->
+        <EditText
+            android:id="@+id/loginInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
+            android:autofillHints=""
+            android:background="#D9D9D9"
+            android:gravity="center"
+            android:hint="@string/txt_login"
+            android:inputType="text"
+            android:minHeight="65dp"
+            android:textColorHint="#6E6E6E"
+            android:textSize="21sp" />
+
+        <EditText
+            android:id="@+id/passwordInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loginInsert"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
+            android:autofillHints=""
+            android:background="#D9D9D9"
+            android:gravity="center"
+            android:hint="@string/txt_pwd"
+            android:inputType="textPassword"
+            android:minHeight="65dp"
+            android:textColorHint="#6E6E6E"
+            android:textSize="21sp" />
+
+
+        <LinearLayout
+            android:id="@+id/role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordInsert"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Роль:"
+                android:textSize="21sp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/role"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
+            android:autofillHints=""
+            android:background="#D9D9D9"
+            android:gravity="center"
+            android:hint="@string/txt_FIO"
+            android:inputType="text"
+            android:minHeight="65dp"
+            android:textColorHint="#6E6E6E"
+            android:textSize="21sp" />
+
+        <EditText
+            android:id="@+id/department"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fullName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
+            android:autofillHints=""
+            android:background="#D9D9D9"
+            android:gravity="center"
+            android:hint="@string/txt_dep"
+            android:inputType="text"
+            android:minHeight="65dp"
+            android:textColorHint="#6E6E6E"
+            android:textSize="21sp" />
+
+        <!-- Кнопки Войти и Отмена -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/department"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/insert_button"
+                android:layout_width="250dp"
+                android:layout_height="70dp"
+                android:layout_marginBottom="5dp"
+                android:onClick="insertUser"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/btn_addUser"
+                android:textColor="#FFFFFF"
+                android:textSize="21sp"
+                app:backgroundTint="@color/header"
+                app:cornerRadius="30sp"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="250dp"
+                android:layout_height="70dp"
+                android:onClick="goBack"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/btn_cancel"
+                android:textColor="#FFFFFF"
+                android:textSize="21sp"
+                app:backgroundTint="@color/header"
+                app:cornerRadius="30sp"
+                tools:ignore="TextContrastCheck" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

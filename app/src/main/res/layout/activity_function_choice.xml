@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context=".Activities.FunctionChoiceActivity">
+
+        <!-- Шапка -->
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/header"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/txt_header"
+            android:textColor="#FFFFFF"
+            android:textSize="38sp"
+            android:textStyle="bold" />
+
+        <!-- Лейаут для полей ввода и кнопок -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="200dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:layout_below="@id/header"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/znp_button"
+            android:layout_width="400dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="0dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/btn_znp"
+            android:onClick="goOrders"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp"
+            app:backgroundTint="@color/header"
+            app:cornerRadius="30sp"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/znv_button"
+            android:layout_width="400dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="0dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="20dp"
+            android:text="@string/btn_znv"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp"
+            android:onClick="goReloadRequests"
+            app:backgroundTint="@color/header"
+            app:cornerRadius="30sp"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/quarantine_button"
+            android:layout_width="400dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="0dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="20dp"
+            android:text="@string/btn_quarantine"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp"
+            app:backgroundTint="@color/header"
+            app:cornerRadius="30sp"
+            tools:ignore="TextContrastCheck" />
+
+
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="400dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="0dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="20dp"
+            android:text="@string/btn_edit"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp"
+            app:backgroundTint="@color/header"
+            app:cornerRadius="30sp"
+            tools:ignore="TextContrastCheck" />
+
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/btn_exit"
+        android:textColor="#FFFFFF"
+        android:onClick="goBack"
+        android:textSize="21sp"
+        app:backgroundTint="@color/header"
+        app:cornerRadius="30sp"
+        tools:ignore="TextContrastCheck"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

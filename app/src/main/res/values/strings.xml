@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">WarehouseAssistant</string>
+    <string name="btn_login">Войти</string>
+    <string name="btn_cancel">Отмена</string>
+    <string name="txt_login">Логин</string>
+    <string name="txt_pwd">Пароль</string>
+    <string name="txt_pieces">Штуки</string>
+    <string name="txt_header">Северсталь</string>
+    <string name="txt_titleInit">Вход</string>
+    <string name="btn_znp">Заказы</string>
+    <string name="btn_znv">Запрос на выгрузку</string>
+    <string name="btn_quarantine">Оформить карантин</string>
+    <string name="btn_update">Обновить данные</string>
+    <string name="btn_edit">Редактировать запрос</string>
+    <string name="btn_exit">Выход</string>
+    <string name="btn_back">Назад</string>
+    <string name="btn_insertUser">Добавить пользователя</string>
+    <string name="btn_deleteUser">Удалить пользователя</string>
+    <string name="btn_editUser">Редактировать пользователя</string>
+    <string name="txt_insertUser">Добавление пользователя</string>
+    <string name="btn_addUser">Добавить</string>
+    <string name="txt_role">Роль</string>
+    <string name="txt_FIO">ФИО</string>
+    <string name="txt_dep">Цех</string>
+    <string name="btn_continue">Продолжить</string>
+    <string name="txt_TC">ТС</string>
+    <string name="txt_Ceh">Цех</string>
+    <string name="txt_Sklad">Склад</string>
+    <string name="txt_address">Адрес/самовывоз</string>
+    <string name="txt_confirm">Оформить</string>
+    <string name="txt_znp">Оформление запроса на погрузку</string>
+    <string name="txt_reloadRequest">Запросы</string>
+    <string name="txt_users">Пользователи</string>
+</resources>

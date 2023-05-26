@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Activities.MainActivity">
+
+    <!-- Шапка -->
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/txt_header"
+        android:textColor="#FFFFFF"
+        android:textSize="38sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="@string/txt_titleInit"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        android:textStyle="bold" />
+
+    <!-- Лейаут для полей ввода и кнопок -->
+    <RelativeLayout
+        android:id="@+id/login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+
+        <!-- Поле ввода пароля -->
+        <EditText
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
+            android:autofillHints=""
+            android:background="#D9D9D9"
+            android:gravity="center"
+            android:hint="@string/txt_login"
+            android:inputType="text"
+            android:minHeight="65dp"
+            android:textColorHint="#6E6E6E"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:autofillHints=""
+            android:background="#D9D9D9"
+            android:gravity="center"
+            android:hint="@string/txt_pwd"
+            android:inputType="textPassword"
+            android:minHeight="65dp"
+            android:textColorHint="#6E6E6E"
+            android:textSize="30sp" />
+
+        <!-- Кнопки Войти и Отмена -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:onClick="btnClickEnter"
+                android:paddingStart="16dp"
+                android:paddingEnd="20dp"
+                android:text="@string/btn_login"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp"
+                app:backgroundTint="@color/header"
+                app:cornerRadius="30sp"
+                tools:ignore="TextContrastCheck" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

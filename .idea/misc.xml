@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/drawable/card_background.xml" value="0.123" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_admin_panel.xml" value="0.155622060709705" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_delete_user.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_edit_user.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_function_choice.xml" value="0.25" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_orders.xml" value="0.1" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_pieces.xml" value="0.264" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_reload_request.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_user_inserting.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/activity_znp.xml" value="0.2" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/dialog_custom_layout.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/item_spinner.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/list_item_order.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/list_item_piece.xml" value="0.16" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/list_item_piece_2.xml" value="0.1" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/list_item_reload_req.xml" value="0.1" />
+        <entry key="..\:/Users/Sergey/AndroidStudioProjects/WarehouseAssistant/app/src/main/res/layout/list_item_users.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
