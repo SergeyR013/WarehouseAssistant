@@ -22,11 +22,13 @@ public class GetTCTask extends AsyncTask<Void, Void, String> {
     private List<String> TCList;
     private Spinner spinner;
     private Context context;
+    private String selectedTC;
 
-    public GetTCTask(List<String> TCList, Spinner spinner, Context context) {
+    public GetTCTask(List<String> TCList, Spinner spinner, Context context, String selectedTC) {
         this.TCList = TCList;
         this.spinner = spinner;
         this.context = context;
+        this.selectedTC = selectedTC;
     }
 
     @Override
@@ -59,13 +61,14 @@ public class GetTCTask extends AsyncTask<Void, Void, String> {
         if (result != null) {
             try {
                 JSONArray jsonArray = new JSONArray(result); // jsonData - строка JSON с данными из файла GetOrders.php
-
+                if (!selectedTC.equals(""))TCList.add(selectedTC.substring(4));
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     Transport TC = new Transport();
                     TC.setNumber(jsonObject.getString("vehicle_number"));
                     TCList.add(TC.getNumber());
                 }
+
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, TCList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

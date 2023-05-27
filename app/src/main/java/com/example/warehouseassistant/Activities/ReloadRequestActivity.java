@@ -24,6 +24,7 @@ public class ReloadRequestActivity extends AppCompatActivity {
     private String idUser;
     private ReloadRequestsAdapter reqAdapter;
     private List<ReloadRequests> requestsList;
+    private Boolean isEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,13 @@ public class ReloadRequestActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         idUser = intent.getStringExtra("idUser");
+        isEdit = intent.getBooleanExtra("isEdit", false);
 
         RecyclerView recyclerViewOrders = findViewById(R.id.recyclerView);
         recyclerViewOrders.setLayoutManager(new LinearLayoutManager(this));
 
         requestsList = new ArrayList<>();
-        reqAdapter = new ReloadRequestsAdapter(requestsList, this, idUser);
+        reqAdapter = new ReloadRequestsAdapter(requestsList, this, idUser, isEdit);
 
         recyclerViewOrders.setAdapter(reqAdapter);
 
@@ -58,6 +60,5 @@ public class ReloadRequestActivity extends AppCompatActivity {
 
     public void goBack(View view){
         onBackPressed();
-
     }
 }

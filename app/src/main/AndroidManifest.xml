@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:ignore="ExtraText">
         <activity
+            android:name=".Activities.IsolationActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.editUserActivity"
             android:exported="false" />
         <activity

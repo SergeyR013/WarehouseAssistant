@@ -69,6 +69,7 @@
             android:layout_height="70dp"
             android:layout_marginEnd="0dp"
             android:paddingStart="16dp"
+            android:onClick="goIsolation"
             android:paddingEnd="20dp"
             android:text="@string/btn_quarantine"
             android:textColor="#FFFFFF"
@@ -85,13 +86,13 @@
             android:layout_marginEnd="0dp"
             android:paddingStart="16dp"
             android:paddingEnd="20dp"
+            android:onClick="goEditLoadRequests"
             android:text="@string/btn_edit"
             android:textColor="#FFFFFF"
             android:textSize="21sp"
             app:backgroundTint="@color/header"
             app:cornerRadius="30sp"
             tools:ignore="TextContrastCheck" />
-
 
 
     </LinearLayout>

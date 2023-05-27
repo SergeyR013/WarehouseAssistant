@@ -48,9 +48,7 @@ public class OrdersActivity extends AppCompatActivity {
     }
 
     public void goBack(View view){
-        Intent intent = new Intent(this, FunctionChoiceActivity.class);
-        intent.putExtra("idUser", idUser);
-        startActivity(intent);
+        onBackPressed();
     }
 
     @Override

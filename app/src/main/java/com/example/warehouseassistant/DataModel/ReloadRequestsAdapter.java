@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.warehouseassistant.Activities.ZnpActivity;
 import com.example.warehouseassistant.DataBase.DataBase;
 import com.example.warehouseassistant.R;
 
@@ -25,11 +27,13 @@ public class ReloadRequestsAdapter extends RecyclerView.Adapter<ReloadRequestsAd
     private List<ReloadRequests> requestsList;
     private Context context;
     private String idUser;
+    private Boolean isEdit;
 
-    public ReloadRequestsAdapter(List<ReloadRequests> requestsList, Context context, String idUser) {
+    public ReloadRequestsAdapter(List<ReloadRequests> requestsList, Context context, String idUser, Boolean isEdit) {
         this.requestsList = requestsList;
         this.context = context;
         this.idUser = idUser;
+        this.isEdit = isEdit;
     }
 
     @NonNull
@@ -53,44 +57,56 @@ public class ReloadRequestsAdapter extends RecyclerView.Adapter<ReloadRequestsAd
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Подтверждение запроса на выгрузку");
+                if (isEdit){
+                    Toast.makeText(context, "Редактирование вызвано!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, ZnpActivity.class);
+                    intent.putExtra("idUser", idUser);
+                    intent.putExtra("isEdit", isEdit);
+                    intent.putExtra("selectedType", req.getRequest_type());
+                    intent.putExtra("selectedTC", req.getTC());
+                    intent.putExtra("idReq", req.getRequest_id());
 
-                // Настройка пользовательского макета
-                View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_custom_layout, null);
-                builder.setView(dialogView);
+                    context.startActivity(intent);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Подтверждение запроса на выгрузку");
 
-                // Получение ссылок на кнопки
-                Button buttonConfirm = dialogView.findViewById(R.id.buttonConfirm);
-                Button buttonReject = dialogView.findViewById(R.id.buttonReject);
+                    // Настройка пользовательского макета
+                    View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_custom_layout, null);
+                    builder.setView(dialogView);
 
-                // Добавление слушателей для кнопок
-                buttonConfirm.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        DataBase db = new DataBase();
-                        db.UpdateLoadRequest(idUser, "4", req.getRequest_id(), "Принят", context);
-                    }
-                });
+                    // Получение ссылок на кнопки
+                    Button buttonConfirm = dialogView.findViewById(R.id.buttonConfirm);
+                    Button buttonReject = dialogView.findViewById(R.id.buttonReject);
 
-                buttonReject.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        DataBase db = new DataBase();
-                        db.UpdateLoadRequest(idUser, "5", req.getRequest_id(), "Отклонен", context);
-                    }
-                });
+                    // Добавление слушателей для кнопок
+                    buttonConfirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            DataBase db = new DataBase();
+                            db.UpdateLoadRequest(idUser, "4", req.getRequest_id(), "Принят", context);
+                        }
+                    });
 
-                // Добавление кнопки "Закрыть"
-                builder.setPositiveButton("Закрыть", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
+                    buttonReject.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            DataBase db = new DataBase();
+                            db.UpdateLoadRequest(idUser, "5", req.getRequest_id(), "Отклонен", context);
+                        }
+                    });
 
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                    // Добавление кнопки "Закрыть"
+                    builder.setPositiveButton("Закрыть", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+
             }
         });
     }

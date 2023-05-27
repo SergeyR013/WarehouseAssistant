@@ -110,10 +110,6 @@ public class userInserting extends AppCompatActivity {
         if (isInsert){
             DataBase db = new DataBase();
             db.InsertUser(pwd, lgn, userRole, FIO, dep, this, idUser);
-
-//            UI ui = new UI();
-//            ui.userInitialization(lgn, pwd, userRole, FIO, dep, this, FunctionChoiceActivity.class, Boolean.FALSE);
-//            ui.insertUser(this, idUser);
         } else{
             if (!pwd.equals("")){
                 input.setPassword(pwd);

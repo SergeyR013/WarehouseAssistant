@@ -27,8 +27,8 @@ public class DataBase {
         task.execute();
     }
 
-    public void LoadTC(List<String> TCList , Spinner spinner, Context context){
-        GetTCTask task = new GetTCTask(TCList, spinner, context);
+    public void LoadTC(List<String> TCList , Spinner spinner, Context context, String selectedTC){
+        GetTCTask task = new GetTCTask(TCList, spinner, context, selectedTC);
         task.execute();
     }
 
@@ -73,6 +73,21 @@ public class DataBase {
         String pwd = input.getPassword();
 
         InsertUserTask task = new InsertUserTask(pwd, login, role, fullName, department, func, idUser);
+        task.execute();
+    }
+
+    public void EditLoadRequest(String ceh, String sklad, String requestId, String idUser, String type, Context context){
+        EditLoadRequestTask task = new EditLoadRequestTask(ceh, sklad, requestId, idUser, type, context);
+        task.execute();
+    }
+
+    public void GetPiecesForIsolation(List<Piece> picesList, PieceAdapter adapter, Context context){
+        GetPiecesForIsolation task = new GetPiecesForIsolation(picesList, adapter, context);
+        task.execute();
+    }
+
+    public void CreateIsolation(String pieceId, String idUser, String reason, Context context){
+        CreateIsolationTask task = new CreateIsolationTask(pieceId, idUser, reason, context);
         task.execute();
     }
 

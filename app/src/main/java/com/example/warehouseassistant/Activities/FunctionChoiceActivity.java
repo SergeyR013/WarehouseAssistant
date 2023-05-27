@@ -28,9 +28,7 @@ public class FunctionChoiceActivity extends AppCompatActivity {
     }
 
     public void goBack(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-
+        onBackPressed();
     }
 
     public void goOrders(View view){
@@ -41,6 +39,20 @@ public class FunctionChoiceActivity extends AppCompatActivity {
 
     public void goReloadRequests(View view){
         Intent intent = new Intent(this, ReloadRequestActivity.class);
+        intent.putExtra("idUser", idUser);
+        intent.putExtra("isEdit", false);
+        startActivity(intent);
+    }
+
+    public void goEditLoadRequests(View view){
+        Intent intent = new Intent(this, ReloadRequestActivity.class);
+        intent.putExtra("idUser", idUser);
+        intent.putExtra("isEdit", true);
+        startActivity(intent);
+    }
+
+    public void goIsolation(View view){
+        Intent intent = new Intent(this, IsolationActivity.class);
         intent.putExtra("idUser", idUser);
         startActivity(intent);
     }

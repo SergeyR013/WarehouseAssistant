@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.warehouseassistant.DataBase.DataBase;
 import com.example.warehouseassistant.DataModel.Piece;
@@ -31,6 +33,13 @@ public class ZnpActivity extends AppCompatActivity {
     String idUser;
     TextView ceh;
     TextView sklad;
+    Boolean isEdit;
+    Button showPiecesBtn;
+    String idReq;
+
+    private String selectedTC = "";
+    private String selectedType;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +47,16 @@ public class ZnpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_znp);
 
         Intent intent = getIntent();
-        pieces = (ArrayList<Piece>) intent.getSerializableExtra("PiecesList");
+        isEdit = intent.getBooleanExtra("isEdit", false);
+        if (!isEdit){
+            pieces = (ArrayList<Piece>) intent.getSerializableExtra("PiecesList");
+        } else{
+            showPiecesBtn = findViewById(R.id.pieces_button);
+            showPiecesBtn.setVisibility(View.INVISIBLE);
+            selectedType=intent.getStringExtra("selectedType");
+            selectedTC=intent.getStringExtra("selectedTC");
+            idReq=intent.getStringExtra("idReq");
+        }
         idUser = intent.getStringExtra("idUser");
 
         typeZnP = findViewById(R.id.spinner);
@@ -46,10 +64,19 @@ public class ZnpActivity extends AppCompatActivity {
         ceh = findViewById(R.id.Ceh);
         sklad = findViewById(R.id.Sklad);
 
+
         // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
         ArrayAdapter<String> adapter1 = new ArrayAdapter(this, R.layout.item_spinner, R.id.text_role, type);
         // Применяем адаптер к элементу spinner
         typeZnP.setAdapter(adapter1);
+
+        if (isEdit){
+            int position = adapter1.getPosition(selectedType);
+            if (position != -1){
+                typeZnP.setSelection(position);
+            }
+        }
+
 
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
             @Override
@@ -69,7 +96,7 @@ public class ZnpActivity extends AppCompatActivity {
 
     public void LoadTC(){
         DataBase db = new DataBase();
-        db.LoadTC(TCList, TCspinner, this);
+        db.LoadTC(TCList, TCspinner, this, selectedTC);
     }
 
     public void cancel(View view){
@@ -80,13 +107,13 @@ public class ZnpActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Список элементов");
 
-// Создание списка элементов
+        // Создание списка элементов
         ListView listView = new ListView(this);
         PieceAdapter adapter = new PieceAdapter(this, pieces, true);
         listView.setAdapter(adapter);
         builder.setView(listView);
 
-// Добавление кнопки "Закрыть"
+        // Добавление кнопки "Закрыть"
         builder.setPositiveButton("Закрыть", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -94,7 +121,7 @@ public class ZnpActivity extends AppCompatActivity {
             }
         });
 
-// Отображение всплывающего окна
+        // Отображение всплывающего окна
         AlertDialog dialog = builder.create();
         dialog.setTitle("Выбранные штуки");
         dialog.show();
@@ -103,16 +130,34 @@ public class ZnpActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, FunctionChoiceActivity.class);
+        intent.putExtra("idUser", idUser);
         startActivity(intent);
     }
 
     public void ConfirmZnP(View view){
-        String selectedTC = TCspinner.getSelectedItem().toString();
-        String selectedType = typeZnP.getSelectedItem().toString();
-        String selectedCeh = ceh.getText().toString();
-        String selectedSklad = sklad.getText().toString();
+        if (!isEdit){
+            String selectedTC = TCspinner.getSelectedItem().toString();
+            String selectedType = typeZnP.getSelectedItem().toString();
+            String selectedCeh = ceh.getText().toString();
+            String selectedSklad = sklad.getText().toString();
 
-        DataBase db = new DataBase();
-        db.LoadRequest(idUser, pieces, selectedTC, selectedType, selectedCeh, selectedSklad, this);
+            if (selectedType.equals("Внутренний") && (selectedCeh.equals("") || selectedSklad.equals(""))){
+                Toast.makeText(this, "При внутреннем запросе должны быть прописаны Цех и Склад", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            DataBase db = new DataBase();
+            db.LoadRequest(idUser, pieces, selectedTC, selectedType, selectedCeh, selectedSklad, this);
+        } else{
+            String selectedType = typeZnP.getSelectedItem().toString();
+            String selectedCeh = ceh.getText().toString();
+            String selectedSklad = sklad.getText().toString();
+
+            Toast.makeText(this, "Вызов метода обновления данных о запросе", Toast.LENGTH_SHORT).show();
+
+            DataBase db = new DataBase();
+            db.EditLoadRequest(selectedCeh, selectedSklad, idReq, idUser, selectedType, this);
+        }
+
     }
 }

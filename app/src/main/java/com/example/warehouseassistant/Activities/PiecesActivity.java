@@ -59,9 +59,7 @@ public class PiecesActivity extends AppCompatActivity implements OnPiecesLoadedL
     }
 
     public void goBack(View view){
-        Intent intent = new Intent(this, OrdersActivity.class);
-        intent.putExtra("iduser", idUser);
-        startActivity(intent);
+        onBackPressed();
     }
 
     public void goContinue(View view){
@@ -87,6 +85,7 @@ public class PiecesActivity extends AppCompatActivity implements OnPiecesLoadedL
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, OrdersActivity.class);
+        intent.putExtra("idUser", idUser);
         startActivity(intent);
     }
 }
